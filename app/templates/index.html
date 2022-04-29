@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base.html' %} {% import 'macros.html' as macro %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +14,63 @@
 
     {% block content %}
     <h1>WELCOME TO TIMELY NEWS!!</h1>
+
+    <div class="container-fluid">
+        <div class="page_name">
+            <h1><img src="static/images/logo.jpg" alt="" width="150px" height="75px"> | Timely News Highlights</h1>
+        </div>
+        <!-- General Sources section  -->
+        <hr />
+        <div class="source_section">
+            <h3 id="general" class="source_section_name">General News</h3>
+            <ul>
+                <div class="row">
+                    {{ macro.displaySourcesList(general) }}
+                </div>
+            </ul>
+        </div>
+        <!-- Business Sources section  -->
+        <hr />
+        <div class="source_section">
+            <h3 id="business" class="source_section_name">Business News</h3>
+            <ul>
+                <div class="row">
+                    {{ macro.displaySourcesList(business) }}
+                </div>
+            </ul>
+        </div>
+        <!-- Sport Sources section  -->
+        <hr />
+        <div class="source_section">
+            <h3 id="sport" class="source_section_name">Sports News</h3>
+            <ul>
+                <div class="row">
+                    {{ macro.displaySourcesList(sport) }}
+                </div>
+            </ul>
+        </div>
+        <!-- Entertainment Sources section  -->
+        <hr />
+        <div class="source_section">
+            <h3 id="entertainment" class="source_section_name">Entertainment News</h3>
+            <ul>
+                <div class="row">
+                    {{ macro.displaySourcesList(entertainment) }}
+                </div>
+            </ul>
+        </div>
+        <!-- Technology Sources section  -->
+        <hr />
+        <div class="source_section">
+            <h3 id="technology" class="source_section_name">Technology News</h3>
+            <ul>
+                <div class="row">
+                    {{ macro.displaySourcesList(technology) }}
+                </div>
+            </ul>
+        </div>
+
+    </div>
     {% endblock %}
 
 
