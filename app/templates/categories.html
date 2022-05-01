@@ -9,14 +9,13 @@
 
 </head>
 
-
+{% block content %}
 
 
 <body>
-    {% block content %}
-    <br>
-    <br>
-    <h1 align="center" class="text-uppercase" style="margin-top: 3%;">{{cat}} NEWS </h3>
+
+
+    <h1 align="center" class="text-uppercase" style="margin-top: 6%;">{{cat}} NEWS </h3>
         <div class="container">
             <div class="card-columns">
                 {% for category in category %}
