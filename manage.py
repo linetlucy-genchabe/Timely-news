@@ -1,4 +1,5 @@
 from app import create_app
+
 from flask_script import Manager, Server 
 #Flask-Script is a command line parser for creating startup configurations.
 # Manager initializes the flask script extension
