@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% import 'macros.html' as macro %}
+{% extends 'base.html'%}
+<br>
+<br>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,73 +9,64 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIMELY NEWS</title>
+
 </head>
+{% block content %}
 
 <body>
 
-    {% block content %}
-    <h1>WELCOME TO TIMELY NEWS!!</h1>
+    <div class="main">
+        <div class="container-fluid" style="margin-top: 5%;">
+            <div class="row">
+                <div class="col-md-"></div>
+                <div class="col-3">
+                    <div class="card-column">
+                        <div class="card-header">
+                            <h4>NEWS SOURCES</h4>
+                        </div>
+                        <div class="list-group list-group-flush scrolly">
+                            <ul>
+                                {% for source in sources %}
+                                <a href="/article/{{source.id}}">
+                                    <p class="text-capitalize text-muted">{{source.id}}</p>
+                                </a>
+                                {% endfor %}
+                            </ul>
+                        </div>
 
-    <div class="container-fluid">
-        <div class="page_name">
-            <h1><img src="static/images/logo.jpg" alt="" width="150px" height="75px"> | Timely News Highlights</h1>
-        </div>
-        <!-- General Sources section  -->
-        <hr />
-        <div class="source_section">
-            <h3 id="general" class="source_section_name">General News</h3>
-            <ul>
-                <div class="row">
-                    {{ macro.displaySourcesList(general) }}
+                    </div>
                 </div>
-            </ul>
-        </div>
-        <!-- Business Sources section  -->
-        <hr />
-        <div class="source_section">
-            <h3 id="business" class="source_section_name">Business News</h3>
-            <ul>
-                <div class="row">
-                    {{ macro.displaySourcesList(business) }}
-                </div>
-            </ul>
-        </div>
-        <!-- Sport Sources section  -->
-        <hr />
-        <div class="source_section">
-            <h3 id="sport" class="source_section_name">Sports News</h3>
-            <ul>
-                <div class="row">
-                    {{ macro.displaySourcesList(sport) }}
-                </div>
-            </ul>
-        </div>
-        <!-- Entertainment Sources section  -->
-        <hr />
-        <div class="source_section">
-            <h3 id="entertainment" class="source_section_name">Entertainment News</h3>
-            <ul>
-                <div class="row">
-                    {{ macro.displaySourcesList(entertainment) }}
-                </div>
-            </ul>
-        </div>
-        <!-- Technology Sources section  -->
-        <hr />
-        <div class="source_section">
-            <h3 id="technology" class="source_section_name">Technology News</h3>
-            <ul>
-                <div class="row">
-                    {{ macro.displaySourcesList(technology) }}
-                </div>
-            </ul>
-        </div>
+                <div class="col-md-1"></div>
+                <div class="col-7">
+                    <h1 align="center"> TIMELY NEWS HEADLINES</h3>
+                        <div class="container">
+                            <div class="card-columns">
+                                {% for headlines in headlines %}
 
+                                <div class="card">
+                                    <img class="card" src="{{headlines.image}}" alt="Card image cap" size="100px180">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{headlines.author}}</h5>
+                                        <p class="card-text">{{headlines.description}}</p>
+                                        <a href="{{headlines.url}}">
+                                            <p class="card-text">Click here for more details!</p>
+                                        </a>
+                                    </div>
+                                    <div class="card-footer">
+                                        <small class="text-muted">Publish date:{{headlines.time}}</small>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                </div>
+
+            </div>
+        </div>
     </div>
-    {% endblock %}
-
 
 </body>
+
+{% endblock %}
 
 </html>
